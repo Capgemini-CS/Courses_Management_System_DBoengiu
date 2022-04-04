@@ -34,15 +34,14 @@ public class StudentService {
     }
 
     public void enrollStudent(Integer studentId, Integer courseId) {
-        Course course = new Course();
-        Student student = new Student();
+        Course course = courseRepository.getById(courseId);
+        Student student = studentRepository.getById(studentId);
+        
 
-        if (studentRepository.findById(studentId).isPresent() && courseRepository.findById(courseId).isPresent()) {
-            student = studentRepository.findById(studentId).get();
-            course = courseRepository.findById(courseId).get();
-        }
+        student.enrollInCourse(course);
 
-        student.getCourses().add(course);
-        course.getStudents().add(student);
+        studentRepository.save(student);
+
+
     }
 }

@@ -39,9 +39,9 @@ public class Student {
             inverseJoinColumns = { @JoinColumn(name = "courses_id") })
     private Set<Course> courses = new HashSet<>();
 
-//    public void addTag(Course course) {
-//        this.courses.add(course);
-//        courses.getStu().add(this);
-//    }
+
+    public void enrollInCourse(Course course) {
+        courses.add(course);
+    }
 
 }

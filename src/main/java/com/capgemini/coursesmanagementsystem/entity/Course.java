@@ -31,8 +31,12 @@ public class Course {
                     CascadeType.MERGE
             },
             mappedBy = "courses")
-    @JsonIgnore
+//    @JsonIgnore
     private Set<Student> students = new HashSet<>();
+
+    public void enrollStudent(Student student) {
+        students.add(student);
+    }
 
 
 }
